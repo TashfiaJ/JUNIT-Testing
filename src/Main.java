@@ -1,21 +1,22 @@
-// Main class to call methods
+import java.util.ArrayList;
+import java.util.List;
+
+// Main class to demonstrate the catering service
 public class Main {
     public static void main(String[] args) {
-        MathOperations mathOps = new MathOperations();
-        StringManipulation strOps = new StringManipulation();
+        CateringService cateringService = new CateringService();
+        Customer customer1 = new Customer("Alice");
+        Customer customer2 = new Customer("Bob");
 
-        // Call methods from MathOperations
-        System.out.println("Addition: " + mathOps.add(5, 3));
-        System.out.println("Subtraction: " + mathOps.subtract(10, 4));
-        System.out.println("Multiplication: " + mathOps.multiply(6, -2));
-        System.out.println("Division: " + mathOps.divide(12, 5));
+        // Customer 1: Add items to the menu and display it
+        cateringService.addItemToMenu("Pasta Carbonara");
+        cateringService.displayMenu();
 
-        // Call methods from StringManipulation
-        System.out.println("Concatenation: " + strOps.concatenate("Hello, ", "World!"));
-        System.out.println("Contains Character 'o': " + strOps.containsCharacter("Hello", 'o'));
-        System.out.println("Reversed String: " + strOps.reverseString("Java"));
-        System.out.println("Is Palindrome: " + strOps.isPalindrome("racecar"));
-        System.out.println("Count Vowels: " + strOps.countVowels("OpenAI GPT-3.5"));
-        System.out.println("Is Empty: " + strOps.isEmpty(""));
+        // Customer 2: Place an order and leave a review
+        List<String> orderItems = new ArrayList<>();
+        orderItems.add("Chicken Alfredo");
+        orderItems.add("Beef Tacos");
+        customer2.placeOrder(cateringService, orderItems);
+        customer2.leaveReview(5);
     }
 }
